@@ -1,0 +1,17 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="HelloWiX" Manufacturer="Siddh" Version="1.0.0.0" Scope="perMachine" UpgradeCode="d9405cd3-ed56-418e-9254-a021ab2bfc0b">
+    <MajorUpgrade DowngradeErrorMessage="A newer version is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="HelloWiX" />
+    </StandardDirectory>
+    <ComponentGroup Id="MainComponents" Directory="INSTALLFOLDER">
+      <Component><File Source="..\app\HelloApp.exe" /></Component>
+      <Component><File Source="..\app\HelloApp.dll" /></Component>
+      <Component><File Source="..\app\HelloApp.runtimeconfig.json" /></Component>
+    </ComponentGroup>
+    <Feature Id="Main">
+      <ComponentGroupRef Id="MainComponents" />
+    </Feature>
+  </Package>
+</Wix>
