@@ -1,0 +1,23 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="MyApp" Manufacturer="Siddharth"
+           Version="1.0.1.0" Scope="perMachine"
+           UpgradeCode="549efd04-7a95-45f7-9e88-b2039fe5b33b">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="MyApp" />
+    </StandardDirectory>
+
+    <ComponentGroup Id="HarvestedFiles" Directory="INSTALLFOLDER">
+      <Files Include="..\app\**">
+        <Exclude Files="..\app\*.pdb" />
+      </Files>
+    </ComponentGroup>
+
+    <Feature Id="Main">
+      <ComponentGroupRef Id="HarvestedFiles" />
+    </Feature>
+  </Package>
+</Wix>

@@ -1,7 +1,5 @@
 bin/
 obj/
 app/
-.vs/
-*.msi
-*.wixpdb
+install.log
 install.log
